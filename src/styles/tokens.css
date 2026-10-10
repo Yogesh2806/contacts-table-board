@@ -1,0 +1,104 @@
+/*
+ * Aa NAD design tokens as CSS custom properties.
+ * Values come from the Aa NAD tokens.json (light + dark themes).
+ * Components never use raw hex values: they use these names through Tailwind.
+ */
+
+:root {
+  color-scheme: light;
+  --font-sans: 'Atkinson Hyperlegible Next', Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Atkinson Hyperlegible Mono', 'Roboto Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  /* Surfaces and text */
+  --bg: #ffffff;
+  --bg-subtle: #f7f7f7;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #efefef;
+  --surface-hover: #efefef;
+  --surface-pressed: #e2e2e2;
+  --surface-inverse: #111111;
+  --border: #e2e2e2;
+  --border-strong: #737373;
+  --text: #111111;
+  --text-muted: #5c5c5c;
+  --text-subtle: #737373;
+  --text-inverse: #ffffff;
+  --action: #111111;
+  --action-hover: #2b2b2b;
+  --on-action: #ffffff;
+  --focus-ring: #111111;
+  --overlay: rgba(0, 0, 0, 0.56);
+  --segment-active: #ffffff;
+  --segment-active-border: transparent;
+
+  /* Status */
+  --danger: #bd3d3b;
+  --danger-solid: #bd3d3b;
+  --danger-bg: #fff4f3;
+  --warning: #996300;
+  --warning-bg: #fff5e9;
+  --warning-border: #f8b65d;
+  --success: #006e30;
+  --success-bg: #eefbf0;
+  --success-border: #83dc97;
+
+  /* Stage hues (Lead = blue, Prospect = violet, Qualified = amber, Customer = green) */
+  --blue-50: #f2f7ff;   --blue-100: #e2eeff;   --blue-200: #c5ddff;   --blue-300: #a0c6ff;   --blue-600: #286dce;   --blue-800: #154384;
+  --violet-50: #f8f5ff; --violet-100: #f0e9ff; --violet-200: #e1d2ff; --violet-300: #ceb5ff; --violet-600: #8053c0; --violet-800: #50327b;
+  --amber-50: #fff5e9;  --amber-100: #ffe9cf;  --amber-200: #ffd29b;  --amber-300: #f8b65d;  --amber-600: #996300;  --amber-800: #603c00;
+  --green-50: #eefbf0;  --green-100: #d9f6dd;  --green-200: #b0ecbc;  --green-300: #83dc97;  --green-600: #00873c;  --green-800: #005423;
+
+  /* Elevation */
+  --shadow-1: 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04);
+  --shadow-2: 0px 4px 8px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-3: 0px 8px 24px rgba(0, 0, 0, 0.12), 0px 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-4: 0px 16px 48px rgba(0, 0, 0, 0.16), 0px 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark theme. Hue scales are flipped so "-100 fill, -800 text" stays legible. */
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0b0b;
+  --bg-subtle: #121212;
+  --surface: #161616;
+  --surface-raised: #1e1e1e;
+  --surface-sunken: #0b0b0b;
+  --surface-hover: #242424;
+  --surface-pressed: #2e2e2e;
+  --surface-inverse: #f5f5f5;
+  --border: #2e2e2e;
+  --border-strong: #8a8a8a;
+  --text: #f5f5f5;
+  --text-muted: #b0b0b0;
+  --text-subtle: #8f8f8f;
+  --text-inverse: #111111;
+  --action: #f5f5f5;
+  --action-hover: #c9c9c9;
+  --on-action: #111111;
+  --focus-ring: #f5f5f5;
+  --overlay: rgba(0, 0, 0, 0.72);
+  /* Selected segment needs a lighter fill + edge in dark, or it sinks into the track. */
+  --segment-active: #333333;
+  --segment-active-border: #4a4a4a;
+
+  --danger: #fc7a73;
+  --danger-solid: #fc7a73;
+  --danger-bg: #2a1414;
+  --warning: #e39500;
+  --warning-bg: #2a1f0a;
+  --warning-border: #7d5000;
+  --success: #4ec36f;
+  --success-bg: #0f2416;
+  --success-border: #006e30;
+
+  --blue-50: #0d1622;   --blue-100: #0f2f5d;   --blue-200: #154384;   --blue-300: #1d58aa;   --blue-600: #6ea8ff;   --blue-800: #c5ddff;
+  --violet-50: #15101f; --violet-100: #382356; --violet-200: #50327b; --violet-300: #69429f; --violet-600: #b88efc; --violet-800: #e1d2ff;
+  --amber-50: #1a1206;  --amber-100: #452a00;  --amber-200: #603c00;  --amber-300: #7d5000;  --amber-600: #e39500;  --amber-800: #ffd29b;
+  --green-50: #08170e;  --green-100: #003c17;  --green-200: #005423;  --green-300: #006e30;  --green-600: #4ec36f;  --green-800: #b0ecbc;
+
+  --shadow-1: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-2: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  --shadow-3: 0px 8px 24px rgba(0, 0, 0, 0.7);
+  --shadow-4: 0px 16px 48px rgba(0, 0, 0, 0.8);
+}
