@@ -1,0 +1,13 @@
+{
+  "name": "Contacts Table & Board",
+  "id": "contacts-table-board-library",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["none"] },
+  "menu": [
+    { "name": "Build", "command": "build" },
+    { "name": "Rebuild", "command": "rebuild" }
+  ]
+}
