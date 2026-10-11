@@ -1,0 +1,53 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "FieldMap.dc.html": {"h": 1120, "title": "03 · Fields & data", "w": 1440, "x": 0, "y": 1120},
+    "Flow.dc.html": {"h": 1120, "title": "04 · Edit flow & state", "w": 1600, "x": 1520, "y": 1120},
+    "Heuristics.dc.html": {"h": 960, "title": "05 · Nielsen's 10, applied", "w": 1440, "x": 0, "y": 2360},
+    "Main.dc.html": {"h": 1081, "title": "01 · The problem", "w": 1440, "x": 0, "y": -350},
+    "References.dc.html": {"h": 1081, "title": "02 · Learn from real products", "w": 1440, "x": 1520, "y": -350},
+    "Table.dc.html": {"x": 3600, "y": -350, "w": 1440, "h": 900, "title": "A · Table view", "expand": "fill"},
+    "Board.dc.html": {"x": 5120, "y": -350, "w": 1440, "h": 900, "title": "B · Board view (Qualified empty)", "expand": "fill"},
+    "BoardEdit.dc.html": {"x": 6640, "y": -350, "w": 1440, "h": 900, "title": "C · Editing a draft from the board", "expand": "fill"},
+    "TableEdit.dc.html": {"x": 8160, "y": -350, "w": 1440, "h": 900, "title": "C2 · Editing the same draft from the table", "expand": "fill"},
+    "BoardSaved.dc.html": {"x": 3600, "y": 670, "w": 1440, "h": 900, "title": "D · Saved: card moved, Undo toast", "expand": "fill"},
+    "TableGuard.dc.html": {"x": 5120, "y": 670, "w": 1440, "h": 900, "title": "E · From the table: missing data + discard guard", "expand": "fill"},
+    "Narrow.dc.html": {"x": 6640, "y": 670, "w": 1024, "h": 768, "title": "F · Narrow desktop, 1024px", "expand": "fill"},
+    "TableSynced.dc.html": {"x": 3600, "y": 1690, "w": 1440, "h": 900, "title": "G · Same save, seen in the table (views in sync)", "expand": "fill"},
+    "Focus.dc.html": {"x": 5120, "y": 1690, "w": 1440, "h": 900, "title": "H · Keyboard focus returns to the moved card", "expand": "fill"},
+    "Drag.dc.html": {"x": 6640, "y": 1690, "w": 1440, "h": 900, "title": "I · Drag a card to an empty column", "expand": "fill"},
+    "Filtered.dc.html": {"x": 8160, "y": 1690, "w": 1440, "h": 900, "title": "J · Owner filter: empty because filtered vs truly empty", "expand": "fill"},
+    "NoResults.dc.html": {"x": 9680, "y": 1690, "w": 1440, "h": 900, "title": "K · Search with no results", "expand": "fill"}
+  },
+  "createdOnFiles": {"at": "2026-10-10T10:00:00Z", "v": 1},
+  "designSystems": [
+    {"artifact": "https://claude.ai/artifact/JC8N8AHyLKZHp5rJUbzDdQ", "copiedAt": "2026-10-10T10:00:00Z", "namespace": "aa-nad", "title": "Aa NAD", "version": "1791354004-7703"}
+  ],
+  "launch": {"view": "canvas"},
+  "notes": {
+    "step1": {"kind": "title1", "maxW": 3120, "text": "Step 1 · Understand the problem", "w": 240, "x": 0, "y": -715},
+    "step2": {"kind": "title1", "maxW": 7520, "text": "Step 2 · Interface design (Aa NAD)", "x": 3600, "y": -715}
+  },
+  "order": [
+    "Main.dc.html",
+    "References.dc.html",
+    "FieldMap.dc.html",
+    "Flow.dc.html",
+    "Heuristics.dc.html",
+    "Table.dc.html",
+    "Board.dc.html",
+    "BoardEdit.dc.html",
+    "TableEdit.dc.html",
+    "BoardSaved.dc.html",
+    "TableGuard.dc.html",
+    "Narrow.dc.html",
+    "TableSynced.dc.html",
+    "Focus.dc.html",
+    "Drag.dc.html",
+    "Filtered.dc.html",
+    "NoResults.dc.html"
+  ],
+  "pages": [],
+  "title": "Contacts — Table & Board"
+}

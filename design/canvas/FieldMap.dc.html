@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fields and data</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#111111}a:hover{color:#444444}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1120px; box-sizing: border-box; padding: 64px; display: flex; flex-direction: column; gap: 32px; background: #ffffff; color: #111111; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 860px">
+      <div style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #5c5c5c">Step 1 · Information architecture</div>
+      <h1 style="margin: 0; font-size: 40px; line-height: 48px; font-weight: 800">Which field lives where</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 28px; color: #444444">The table is for comparing, so it shows almost everything. Cards are for recognising a person in a column, so they show only what identifies them. The panel shows everything and is the only place you edit.</p>
+    </div>
+    <div style="display: flex; gap: 16px; font-size: 14px; line-height: 20px; color: #444444; flex-shrink: 0">
+      <span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111"></span>Shown</span>
+      <span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box"></span>Condensed</span>
+      <span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 2px; background: #a3a3a3"></span>Hidden</span>
+      <span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #286dce"></span>Editable</span>
+    </div>
+  </div>
+
+  <div role="table" aria-label="Field placement" style="display: flex; flex-direction: column; border: 1px solid #e2e2e2; border-radius: 8px; overflow: hidden">
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); background: #f7f7f7; border-bottom: 1px solid #e2e2e2; font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #5c5c5c">
+      <div role="columnheader" style="padding: 12px 16px">Field</div>
+      <div role="columnheader" style="padding: 12px 16px">Type</div>
+      <div role="columnheader" style="padding: 12px 16px">Table</div>
+      <div role="columnheader" style="padding: 12px 16px">Board card</div>
+      <div role="columnheader" style="padding: 12px 16px">Details panel</div>
+      <div role="columnheader" style="padding: 12px 16px">Why</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Name <span style="font-weight: 400; color: #b24e00; font-size: 12px">required</span></div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Text</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Frozen first column, with avatar</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Card title</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Panel heading</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">The anchor you look for in every view.</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Stage <span style="font-weight: 400; color: #b24e00; font-size: 12px">required</span></div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Select, 1 of 4</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Coloured pill; click opens the panel at Stage</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 2px; background: #a3a3a3; flex-shrink: 0"></span>The column is the stage</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 3px; background: #286dce; flex-shrink: 0"></span>Editable select</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">Repeating the stage on a card inside its own column is noise.</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Company</div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Text</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Column</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box; flex-shrink: 0"></span>Subtitle: Role · Company</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Read-only field</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">The second thing you look for after the name.</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Role</div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Text</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Column</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box; flex-shrink: 0"></span>Merged into the subtitle</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Read-only field</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">One line on the card instead of two; if either is missing, the other stands alone.</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Owner</div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Person</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Avatar and first name</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box; flex-shrink: 0"></span>Avatar only, with tooltip</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Read-only field</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">Who to ask. On a small card a face is enough.</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Labels</div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Multi-select</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box; flex-shrink: 0"></span>First 2 tags, then “+1”</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box; flex-shrink: 0"></span>First 2 tags</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>All tags</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">Context at a glance without wrapping rows or growing cards.</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Email</div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Email</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Column, truncated</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 2px; background: #a3a3a3; flex-shrink: 0"></span>Hidden</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; background: #111111; flex-shrink: 0"></span>Field with copy button</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">Long and rarely scanned on a board. You need it when you act, so it lives in the panel.</div>
+    </div>
+
+    <div role="row" style="display: grid; grid-template-columns: 200px 140px 260px 220px 200px minmax(0, 1fr); font-size: 14px; line-height: 20px; align-items: center">
+      <div role="cell" style="padding: 12px 16px; font-weight: 700; font-size: 16px">Notes</div>
+      <div role="cell" style="padding: 12px 16px; color: #5c5c5c">Long text</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box; flex-shrink: 0"></span>One-line preview; hidden under 1100px</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 999px; border: 2px solid #111111; box-sizing: border-box; flex-shrink: 0"></span>Note icon when present</div>
+      <div role="cell" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center"><span style="width: 12px; height: 12px; border-radius: 3px; background: #286dce; flex-shrink: 0"></span>Editable text area</div>
+      <div role="cell" style="padding: 12px 16px; color: #444444">A hint that something is written, without turning cards into paragraphs.</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">Sample dataset · 10 fictional contacts</h2>
+      <div style="display: flex; gap: 8px; align-items: center; font-size: 14px; line-height: 20px">
+        <span style="padding: 2px 10px; border-radius: 999px; background: #e2eeff; color: #154384; font-weight: 600">Lead 4</span>
+        <span style="padding: 2px 10px; border-radius: 999px; background: #f0e9ff; color: #50327b; font-weight: 600">Prospect 3</span>
+        <span style="padding: 2px 10px; border-radius: 999px; background: #ffe9cf; color: #603c00; font-weight: 600">Qualified 0 · empty on purpose</span>
+        <span style="padding: 2px 10px; border-radius: 999px; background: #d9f6dd; color: #005423; font-weight: 600">Customer 3</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; font-size: 14px; line-height: 20px; border-top: 1px solid #e2e2e2">
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); color: #5c5c5c; font-weight: 700; border-bottom: 1px solid #e2e2e2">
+        <div style="padding: 8px 12px">Name</div><div style="padding: 8px 12px">Company</div><div style="padding: 8px 12px">Role</div><div style="padding: 8px 12px">Email</div><div style="padding: 8px 12px">Owner</div><div style="padding: 8px 12px">Labels</div><div style="padding: 8px 12px">Stage</div><div style="padding: 8px 12px">Notes</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Maya Patel</div><div style="padding: 6px 12px">Lumen Brew</div><div style="padding: 6px 12px">Head of Operations</div><div style="padding: 6px 12px">maya@lumenbrew.co</div><div style="padding: 6px 12px">Arjun</div><div style="padding: 6px 12px">Warm, Referral</div><div style="padding: 6px 12px; color: #154384">Lead</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Met at the SaaS meetup; wants a demo in Nov</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Lena Fischer</div><div style="padding: 6px 12px">Kiefer &amp; Sohn</div><div style="padding: 6px 12px">Procurement lead</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">missing</span></div><div style="padding: 6px 12px">Arjun</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">none</span></div><div style="padding: 6px 12px; color: #154384">Lead</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">empty</span></div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Kenji Watanabe</div><div style="padding: 6px 12px">Orbital Freight</div><div style="padding: 6px 12px">VP Logistics</div><div style="padding: 6px 12px">kenji.w@orbitalfreight.jp</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">none</span></div><div style="padding: 6px 12px">Enterprise</div><div style="padding: 6px 12px; color: #154384">Lead</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Inbound from website form</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Oliver Grant-Whitaker</div><div style="padding: 6px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Holloway &amp; Grant Advisory</div><div style="padding: 6px 12px">Senior partner</div><div style="padding: 6px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">oliver@hollowayandgrant.co.uk</div><div style="padding: 6px 12px">Priya</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">none</span></div><div style="padding: 6px 12px; color: #154384">Lead</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Long name and company: tests truncation everywhere</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Daniel Okafor</div><div style="padding: 6px 12px">Northwind Labs</div><div style="padding: 6px 12px">CTO</div><div style="padding: 6px 12px">daniel.okafor@northwind.io</div><div style="padding: 6px 12px">Sara</div><div style="padding: 6px 12px">Enterprise</div><div style="padding: 6px 12px; color: #50327b">Prospect</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Needs a security review before pilot</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Sofia Alvarez</div><div style="padding: 6px 12px">Brightloop</div><div style="padding: 6px 12px">Marketing director</div><div style="padding: 6px 12px">sofia@brightloop.com</div><div style="padding: 6px 12px">Sara</div><div style="padding: 6px 12px">Referral</div><div style="padding: 6px 12px; color: #50327b">Prospect</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">empty</span></div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Tom Becker</div><div style="padding: 6px 12px">Fernhill Studio</div><div style="padding: 6px 12px">Creative director</div><div style="padding: 6px 12px">tom@fernhill.studio</div><div style="padding: 6px 12px">Arjun</div><div style="padding: 6px 12px">Cold</div><div style="padding: 6px 12px; color: #50327b">Prospect</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Budget decision in Q1</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Rahul Mehta</div><div style="padding: 6px 12px">Tidepool</div><div style="padding: 6px 12px">Founder</div><div style="padding: 6px 12px">rahul@tidepool.in</div><div style="padding: 6px 12px">Priya</div><div style="padding: 6px 12px">Startup, Warm</div><div style="padding: 6px 12px; color: #005423">Customer</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Renewal due in March</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr); border-bottom: 1px solid #efefef">
+        <div style="padding: 6px 12px; font-weight: 600">Amara Nwosu</div><div style="padding: 6px 12px">Quill &amp; Co</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">missing</span></div><div style="padding: 6px 12px">amara@quillandco.com</div><div style="padding: 6px 12px">Priya</div><div style="padding: 6px 12px"><span style="padding: 0 6px; border: 1px dashed #b24e00; border-radius: 4px; color: #b24e00">none</span></div><div style="padding: 6px 12px; color: #005423">Customer</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Prefers calls after 4 pm</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 210px 190px 170px 250px 90px 170px 100px minmax(0, 1fr)">
+        <div style="padding: 6px 12px; font-weight: 600">Isabela Costa</div><div style="padding: 6px 12px">Verdant Grid</div><div style="padding: 6px 12px">Head of partnerships</div><div style="padding: 6px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">isabela.costa@verdantgrid.energy</div><div style="padding: 6px 12px">Sara</div><div style="padding: 6px 12px">Enterprise, Warm, Referral</div><div style="padding: 6px 12px; color: #005423">Customer</div><div style="padding: 6px 12px; color: #444444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Three labels: tests the “+1” overflow</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1120}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

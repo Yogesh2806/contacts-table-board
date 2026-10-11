@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nielsen's 10, applied</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#111111}a:hover{color:#444444}
+</style>
+</helmet>
+<div style="width: 1440px; height: 960px; box-sizing: border-box; padding: 64px; display: flex; flex-direction: column; gap: 32px; background: #111111; color: #f5f5f5; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif">
+
+  <div style="display: flex; flex-direction: column; gap: 12px; max-width: 900px">
+    <div style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #b0b0b0">Step 1 · Design principles</div>
+    <h1 style="margin: 0; font-size: 40px; line-height: 48px; font-weight: 800; color: #ffffff">Nielsen's 10 heuristics, as decisions</h1>
+    <p style="margin: 0; font-size: 18px; line-height: 28px; color: #b0b0b0">Each heuristic becomes something you can point at in the interface — and check in the prototype.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; flex-grow: 1">
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">01</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Visibility of system status</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">Unsaved dot on the panel. Save enables only when something changed. Column counts update live; the moved card flashes once in its new column.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">02</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Match the real world</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">Stages run left to right, Lead to Customer, like a sales pipeline. Plain words: “Save changes”, not “Submit”.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">03</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">User control and freedom</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">Cancel and Esc drop the draft. Every save shows a toast with Undo. Closing the panel never moves you somewhere new.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">04</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Consistency and standards</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">One stage pill, one avatar, one panel — the same in both views. Aa NAD components and tokens throughout.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">05</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Error prevention</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">Stage is a fixed list, so it can't be blank or misspelled. Leaving a dirty draft asks Keep editing or Discard.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">06</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Recognition over recall</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">The stage picker shows all four options with their colours. View switch shows both names with icons. Shortcuts sit in tooltips.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">07</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Flexibility and efficiency</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">Mouse for beginners; ⌘↵, Esc, J/K and arrow keys for experts. Drag-and-drop between columns as a stretch shortcut.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">08</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Aesthetic, minimal design</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">Cards carry 4 things: name, role · company, labels, owner. Ink and paper; colour is used only for stages.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">09</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Recover from errors</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">Moved the wrong person? Undo in the toast puts the stage and notes back exactly as they were.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 8px; background: #1e1e1e; border: 1px solid #2e2e2e"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; line-height: 20px; color: #8fb8ff">10</span><div style="font-size: 18px; line-height: 24px; font-weight: 700; color: #ffffff">Help and documentation</div><div style="font-size: 15px; line-height: 22px; color: #d0d0d0">The empty Qualified column explains how to fill it. Missing fields say “Add email” instead of staying blank. Press ? for shortcuts.</div></div>
+  </div>
+
+  <div style="display: flex; gap: 24px; align-items: center; padding: 20px 24px; border-radius: 8px; background: #ffffff; color: #111111">
+    <span style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #5c5c5c; flex-shrink: 0">Lively, within the system</span>
+    <span style="font-size: 16px; line-height: 24px">Calm motion only where it explains a change: card lifts 2px on hover, panel slides in over 320ms, the moved card fades into its new column, the toast slides up. All of it turns off under reduced motion.</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

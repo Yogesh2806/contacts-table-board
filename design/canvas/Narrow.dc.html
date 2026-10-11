@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contacts · Table · Narrow desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="aa-nad-tokens.css">
+<link rel="stylesheet" href="ds/aa-nad/components/bundle.css">
+<script src="ds/aa-nad/components/bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#111111}a:hover{color:#444444}
+.crow td{transition:background-color 120ms cubic-bezier(0.2,0,0,1)}
+.crow:hover td{background:#efefef}
+.namebtn:focus-visible{outline:2px solid #111111;outline-offset:2px;border-radius:4px}
+.navlink:hover{background:#efefef}
+.stage-pill.nad-badge{height:24px;padding:0 10px 0 8px;gap:6px;border-radius:9999px;border-color:transparent;font-size:12px;line-height:16px}
+.seg{box-sizing:border-box;padding:0 6px;white-space:nowrap;min-width:0}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg:has(input:focus-visible){outline:2px solid #111111;outline-offset:2px}
+</style>
+</helmet>
+<div style="position: relative; display: flex; height: 100vh; min-height: 640px; background: var(--bg); color: var(--text); font-family: var(--font-sans); overflow: hidden">
+
+  <aside aria-label="Workspace" style="flex: 0 0 64px; box-sizing: border-box; padding: 16px 0; background: var(--bg-subtle); border-right: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 16px">
+    <span aria-label="Sundial Studio" role="img" style="width: 32px; height: 32px; border-radius: 4px; background: var(--action); color: var(--on-action); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800">S</span>
+    <nav aria-label="Pages" style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+      <a href="#" aria-label="Search (⌘K)" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="search" size="{{s20}}"></x-import></a>
+      <a href="#" aria-label="Home" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="home" size="{{s20}}"></x-import></a>
+      <a href="#" aria-label="Conversations, 3 unread" class="navlink" style="position: relative; width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="chatbubbles" size="{{s20}}"></x-import><span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; border-radius: 9999px; background: var(--danger-solid); box-shadow: 0 0 0 2px var(--bg-subtle)"></span></a>
+      <span aria-hidden="true" style="width: 24px; height: 1px; background: var(--border); margin: 4px 0"></span>
+      <a href="#" aria-current="page" aria-label="Contacts" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; background: var(--surface-pressed); color: var(--text); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="people" variant="filled" size="{{s20}}"></x-import></a>
+      <a href="#" aria-label="Accounts" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="business" size="{{s20}}"></x-import></a>
+      <a href="#" aria-label="Signals" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="pulse" size="{{s20}}"></x-import></a>
+      <a href="#" aria-label="Campaigns" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="megaphone" size="{{s20}}"></x-import></a>
+      <a href="#" aria-label="Assets" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="images" size="{{s20}}"></x-import></a>
+      <a href="#" aria-label="Knowledge" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="library" size="{{s20}}"></x-import></a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 8px">
+      <a href="#" aria-label="Settings" class="navlink" style="width: 44px; height: 44px; border-radius: 4px; color: var(--text-muted); display: flex; align-items: center; justify-content: center"><x-import component-from-global-scope="AaNAD.Icon" name="settings" size="{{s20}}"></x-import></a>
+      <x-import component-from-global-scope="AaNAD.Avatar" name="Arjun Rao" size="{{s32}}"></x-import>
+    </div>
+  </aside>
+
+  <main style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; height: 100%; isolation: isolate">
+    <header style="flex: 0 0 auto; padding: 16px 24px 12px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <h1 style="margin: 0; font: 700 24px/32px var(--font-sans)">Contacts</h1>
+        <x-import component-from-global-scope="AaNAD.Badge" tone="neutral">10 people</x-import>
+      </div>
+      <div role="toolbar" aria-label="View options" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+        <x-import component-from-global-scope="AaNAD.SegmentedControl" label="View" options="{{views}}" value="table" size="sm"></x-import>
+        <div style="flex-grow: 1"></div>
+        <x-import component-from-global-scope="AaNAD.TextField" label="Search contacts" hide-label="{{yes}}" size="sm" icon-start="search" placeholder="Search name, company or email" style="width: 280px"></x-import>
+        <x-import component-from-global-scope="AaNAD.Select" label="Owner" hide-label="{{yes}}" size="sm" icon-start="person-circle" options="{{owners}}" value="all" style="width: 184px"></x-import>
+      </div>
+    </header>
+
+    <div role="region" aria-label="Contacts table" tabindex="0" style="flex-grow: 1; min-height: 0; overflow: auto; padding: 0 24px">
+      <table style="width: 100%; min-width: 1060px; border-collapse: separate; border-spacing: 0; font: 400 14px/20px var(--font-sans)">
+        <caption class="nad-sr">Contacts, one row per person</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="position: sticky; top: 0; left: 0; z-index: 3; background: var(--bg); text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font: 600 12px/16px var(--font-sans); color: var(--text-muted); width: 240px"><span style="display: inline-flex; gap: 6px; align-items: center"><x-import component-from-global-scope="AaNAD.Icon" name="person" size="{{s16}}"></x-import>Name</span></th>
+            <th scope="col" style="position: sticky; top: 0; z-index: 2; background: var(--bg); text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font: 600 12px/16px var(--font-sans); color: var(--text-muted); width: 120px"><span style="display: inline-flex; gap: 6px; align-items: center"><x-import component-from-global-scope="AaNAD.Icon" name="flag" size="{{s16}}"></x-import>Stage</span></th>
+            <th scope="col" style="position: sticky; top: 0; z-index: 2; background: var(--bg); text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font: 600 12px/16px var(--font-sans); color: var(--text-muted); width: 180px"><span style="display: inline-flex; gap: 6px; align-items: center"><x-import component-from-global-scope="AaNAD.Icon" name="business" size="{{s16}}"></x-import>Company</span></th>
+            <th scope="col" style="position: sticky; top: 0; z-index: 2; background: var(--bg); text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font: 600 12px/16px var(--font-sans); color: var(--text-muted); width: 170px"><span style="display: inline-flex; gap: 6px; align-items: center"><x-import component-from-global-scope="AaNAD.Icon" name="briefcase" size="{{s16}}"></x-import>Role</span></th>
+            <th scope="col" style="position: sticky; top: 0; z-index: 2; background: var(--bg); text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font: 600 12px/16px var(--font-sans); color: var(--text-muted); width: 130px"><span style="display: inline-flex; gap: 6px; align-items: center"><x-import component-from-global-scope="AaNAD.Icon" name="person-circle" size="{{s16}}"></x-import>Owner</span></th>
+            <th scope="col" style="position: sticky; top: 0; z-index: 2; background: var(--bg); text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font: 600 12px/16px var(--font-sans); color: var(--text-muted); width: 190px"><span style="display: inline-flex; gap: 6px; align-items: center"><x-import component-from-global-scope="AaNAD.Icon" name="pricetags" size="{{s16}}"></x-import>Labels</span></th>
+            <th scope="col" style="position: sticky; top: 0; z-index: 2; background: var(--bg); text-align: left; padding: 12px; border-bottom: 1px solid var(--border); font: 600 12px/16px var(--font-sans); color: var(--text-muted); width: 230px"><span style="display: inline-flex; gap: 6px; align-items: center"><x-import component-from-global-scope="AaNAD.Icon" name="mail" size="{{s16}}"></x-import>Email</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{rows}}" as="c" hint-placeholder-count="10">
+            <tr class="crow" style="cursor: pointer">
+              <td style="position: sticky; left: 0; z-index: 1; background: {{c.bg}}; padding: 0 12px; height: 48px; border-bottom: 1px solid var(--border); box-shadow: inset -1px 0 0 var(--border)">
+                <span style="display: flex; align-items: center; gap: 8px; min-width: 0">
+                  <x-import component-from-global-scope="AaNAD.Avatar" name="{{c.name}}" size="{{s24}}" decorative="{{yes}}"></x-import>
+                  <button type="button" class="namebtn" style="border: 0; background: transparent; padding: 0; font: 600 14px/20px var(--font-sans); color: var(--text); cursor: pointer; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px">{{c.name}}</button>
+                </span>
+              </td>
+              <td style="background: {{c.bg}}; padding: 0 12px; border-bottom: 1px solid var(--border)"><x-import component-from-global-scope="AaNAD.Badge" tone="{{c.tone}}" dot="{{yes}}" class="stage-pill">{{c.stage}}</x-import></td>
+              <td style="background: {{c.bg}}; padding: 0 12px; border-bottom: 1px solid var(--border); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px">{{c.company}}</td>
+              <td style="background: {{c.bg}}; padding: 0 12px; border-bottom: 1px solid var(--border); white-space: nowrap">
+                <sc-if value="{{c.hasRole}}" hint-placeholder-val="{{yes}}">{{c.role}}</sc-if>
+                <sc-if value="{{c.noRole}}" hint-placeholder-val="{{no}}"><span style="color: var(--text-subtle)" aria-label="No role">—</span></sc-if>
+              </td>
+              <td style="background: {{c.bg}}; padding: 0 12px; border-bottom: 1px solid var(--border)">
+                <sc-if value="{{c.hasOwner}}" hint-placeholder-val="{{yes}}"><span style="display: inline-flex; align-items: center; gap: 6px"><x-import component-from-global-scope="AaNAD.Avatar" name="{{c.owner}}" size="{{s24}}" decorative="{{yes}}"></x-import>{{c.ownerFirst}}</span></sc-if>
+                <sc-if value="{{c.noOwner}}" hint-placeholder-val="{{no}}"><span style="display: inline-flex; align-items: center; gap: 6px; color: var(--text-subtle)"><span style="width: 24px; height: 24px; box-sizing: border-box; border-radius: 9999px; border: 1px dashed var(--border-strong)"></span>No owner</span></sc-if>
+              </td>
+              <td style="background: {{c.bg}}; padding: 0 12px; border-bottom: 1px solid var(--border)">
+                <span style="display: inline-flex; align-items: center; gap: 4px">
+                  <sc-for list="{{c.shown}}" as="l" hint-placeholder-count="2"><x-import component-from-global-scope="AaNAD.Badge" tone="neutral" variant="outline" size="sm">{{l.name}}</x-import></sc-for>
+                  <sc-if value="{{c.more}}" hint-placeholder-val="{{no}}"><span style="font: 600 12px/16px var(--font-sans); color: var(--text-muted)">{{c.moreText}}</span></sc-if>
+                  <sc-if value="{{c.noLabels}}" hint-placeholder-val="{{no}}"><span style="color: var(--text-subtle)" aria-label="No labels">—</span></sc-if>
+                </span>
+              </td>
+              <td style="background: {{c.bg}}; padding: 0 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 230px">
+                <sc-if value="{{c.hasEmail}}" hint-placeholder-val="{{yes}}">{{c.email}}</sc-if>
+                <sc-if value="{{c.noEmail}}" hint-placeholder-val="{{no}}"><span style="color: var(--text-subtle)" aria-label="No email">—</span></sc-if>
+              </td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+
+    <footer style="display: flex; align-items: center; gap: 16px; padding: 12px 24px; border-top: 1px solid var(--border); font: 400 12px/16px var(--font-sans); color: var(--text-muted)">
+      <span>10 of 10 contacts · Notes column hidden at this width</span>
+    </footer>
+  </main>
+
+  <aside role="complementary" aria-labelledby="panel-title" style="position: absolute; top: 0; right: 0; bottom: 0; z-index: 20; width: 400px; max-width: 100%; box-sizing: border-box; display: flex; flex-direction: column; background: var(--surface-raised); border-left: 1px solid var(--border); box-shadow: var(--shadow-4)">
+    <div style="display: flex; align-items: center; gap: 4px; padding: 8px 12px; border-bottom: 1px solid var(--border)">
+      <x-import component-from-global-scope="AaNAD.IconButton" icon="chevron-up" label="Previous contact (K)" variant="ghost" size="sm"></x-import>
+      <x-import component-from-global-scope="AaNAD.IconButton" icon="chevron-down" label="Next contact (J)" variant="ghost" size="sm"></x-import>
+      <span style="font: 400 12px/16px var(--font-sans); color: var(--text-muted); padding-left: 4px">3 of 10</span>
+      <span style="flex-grow: 1"></span>
+      <x-import component-from-global-scope="AaNAD.IconButton" icon="close" label="Close panel (Esc)" variant="ghost" size="sm"></x-import>
+    </div>
+    <div style="flex-grow: 1; min-height: 0; overflow: auto; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; gap: 12px; align-items: center">
+        <x-import component-from-global-scope="AaNAD.Avatar" name="Kenji Watanabe" size="{{s40}}" decorative="{{yes}}"></x-import>
+        <div style="display: flex; flex-direction: column; min-width: 0">
+          <h2 id="panel-title" style="margin: 0; font: 700 18px/24px var(--font-sans)">Kenji Watanabe</h2>
+          <span style="font: 400 14px/20px var(--font-sans); color: var(--text-muted)">VP Logistics · Orbital Freight</span>
+        </div>
+      </div>
+      <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px">
+        <legend style="padding: 0 0 8px; font: 600 14px/20px var(--font-sans)">Stage</legend>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 0">
+          <label class="seg" style="position: relative; display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 7px; box-sizing: border-box; border-radius: 9999px; border: 2px solid var(--blue-600); background: var(--blue-100); color: var(--blue-800); font: 700 12px/16px var(--font-sans); white-space: nowrap; cursor: pointer"><input type="radio" name="stage" value="Lead" checked="checked"><x-import component-from-global-scope="AaNAD.Icon" name="checkmark-circle" variant="filled" size="{{s16}}" style="color: var(--blue-600)"></x-import>Lead</label>
+          <x-import component-from-global-scope="AaNAD.Icon" name="chevron-forward" size="{{s16}}" style="color: var(--text-subtle)"></x-import>
+          <label class="seg" style="position: relative; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 8px; box-sizing: border-box; border-radius: 9999px; border: 1px solid var(--border); background: var(--surface); color: var(--gray-700); font: 600 12px/16px var(--font-sans); white-space: nowrap; cursor: pointer"><input type="radio" name="stage" value="Prospect"><span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--violet-600)"></span>Prospect</label>
+          <x-import component-from-global-scope="AaNAD.Icon" name="chevron-forward" size="{{s16}}" style="color: var(--text-subtle)"></x-import>
+          <label class="seg" style="position: relative; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 8px; box-sizing: border-box; border-radius: 9999px; border: 1px solid var(--border); background: var(--surface); color: var(--gray-700); font: 600 12px/16px var(--font-sans); white-space: nowrap; cursor: pointer"><input type="radio" name="stage" value="Qualified"><span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--amber-600)"></span>Qualified</label>
+          <x-import component-from-global-scope="AaNAD.Icon" name="chevron-forward" size="{{s16}}" style="color: var(--text-subtle)"></x-import>
+          <label class="seg" style="position: relative; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 8px; box-sizing: border-box; border-radius: 9999px; border: 1px solid var(--border); background: var(--surface); color: var(--gray-700); font: 600 12px/16px var(--font-sans); white-space: nowrap; cursor: pointer"><input type="radio" name="stage" value="Customer"><span style="width: 8px; height: 8px; border-radius: 9999px; background: var(--green-600)"></span>Customer</label>
+        </div>
+      </fieldset>
+      <x-import component-from-global-scope="AaNAD.TextArea" label="Notes" rows="{{r4}}" default-value="Inbound from the website form."></x-import>
+      <dl style="margin: 0; display: grid; grid-template-columns: 80px minmax(0, 1fr); row-gap: 10px; column-gap: 12px; font: 400 14px/20px var(--font-sans)">
+        <dt style="color: var(--text-muted)">Email</dt><dd style="margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">kenji.w@orbitalfreight.jp</dd>
+        <dt style="color: var(--text-muted)">Owner</dt><dd style="margin: 0; color: var(--text-subtle)">No owner yet</dd>
+        <dt style="color: var(--text-muted)">Labels</dt><dd style="margin: 0"><x-import component-from-global-scope="AaNAD.Badge" tone="neutral" variant="outline">Enterprise</x-import></dd>
+      </dl>
+    </div>
+    <div role="status" style="display: flex; align-items: center; gap: 8px; padding: 16px 24px; border-top: 1px solid var(--border); color: var(--text-muted); font: 400 14px/20px var(--font-sans)">
+      <x-import component-from-global-scope="AaNAD.Icon" name="checkmark-circle" size="{{s20}}"></x-import>No changes yet
+    </div>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1024,"height":768}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const CONTACTS = [
+      {id:'c1',name:'Maya Patel',company:'Lumen Brew',role:'Head of Operations',email:'maya@lumenbrew.co',owner:'Arjun Rao',labels:['Warm','Referral'],stage:'Lead',notes:'Met at the SaaS meetup; wants a demo in November.'},
+      {id:'c2',name:'Lena Fischer',company:'Kiefer & Sohn',role:'Procurement lead',email:'',owner:'Arjun Rao',labels:[],stage:'Lead',notes:''},
+      {id:'c3',name:'Kenji Watanabe',company:'Orbital Freight',role:'VP Logistics',email:'kenji.w@orbitalfreight.jp',owner:'',labels:['Enterprise'],stage:'Lead',notes:'Inbound from the website form.'},
+      {id:'c4',name:'Oliver Grant-Whitaker',company:'Holloway & Grant Advisory',role:'Senior partner',email:'oliver@hollowayandgrant.co.uk',owner:'Priya Shah',labels:[],stage:'Lead',notes:'Introduced by Isabela at the partner dinner.'},
+      {id:'c5',name:'Daniel Okafor',company:'Northwind Labs',role:'CTO',email:'daniel.okafor@northwind.io',owner:'Sara Kim',labels:['Enterprise'],stage:'Prospect',notes:'Needs a security review before the pilot.'},
+      {id:'c6',name:'Sofia Alvarez',company:'Brightloop',role:'Marketing director',email:'sofia@brightloop.com',owner:'Sara Kim',labels:['Referral'],stage:'Prospect',notes:''},
+      {id:'c7',name:'Tom Becker',company:'Fernhill Studio',role:'Creative director',email:'tom@fernhill.studio',owner:'Arjun Rao',labels:['Cold'],stage:'Prospect',notes:'Budget decision in Q1.'},
+      {id:'c8',name:'Rahul Mehta',company:'Tidepool',role:'Founder',email:'rahul@tidepool.in',owner:'Priya Shah',labels:['Startup','Warm'],stage:'Customer',notes:'Renewal due in March.'},
+      {id:'c9',name:'Amara Nwosu',company:'Quill & Co',role:'',email:'amara@quillandco.com',owner:'Priya Shah',labels:[],stage:'Customer',notes:'Prefers calls after 4 pm.'},
+      {id:'c10',name:'Isabela Costa',company:'Verdant Grid',role:'Head of partnerships',email:'isabela.costa@verdantgrid.energy',owner:'Sara Kim',labels:['Enterprise','Warm','Referral'],stage:'Customer',notes:'Happy to be a reference customer.'}
+    ];
+    const TONE = {Lead:'blue',Prospect:'violet',Qualified:'amber',Customer:'green'};
+    const selected = 'c3';
+    const rows = CONTACTS.map(c => ({
+      ...c,
+      tone: TONE[c.stage],
+      bg: c.id === selected ? 'var(--blue-50)' : 'var(--bg)',
+      hasRole: !!c.role, noRole: !c.role,
+      hasEmail: !!c.email, noEmail: !c.email,
+      hasNotes: !!c.notes, noNotes: !c.notes,
+      hasOwner: !!c.owner, noOwner: !c.owner,
+      ownerFirst: (c.owner || '').split(' ')[0],
+      shown: c.labels.slice(0, 2).map(n => ({name: n})),
+      more: c.labels.length > 2, moreText: '+' + (c.labels.length - 2),
+      noLabels: c.labels.length === 0
+    }));
+    return {
+      rows,
+      yes: true, no: false, s16: 16, s20: 20, s24: 24, s32: 32, s40: 40, r4: 4,
+      stages: [{value:'Lead',label:'Lead'},{value:'Prospect',label:'Prospect'},{value:'Qualified',label:'Qualified'},{value:'Customer',label:'Customer'}],
+      views: [{value:'table',label:'Table',icon:'list'},{value:'board',label:'Board',icon:'albums'}],
+      owners: [{value:'all',label:'Everyone'},{value:'arjun',label:'Arjun Rao'},{value:'priya',label:'Priya Shah'},{value:'sara',label:'Sara Kim'},{value:'none',label:'No owner'}]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The problem</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#111111}a:hover{color:#444444}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1000px; box-sizing: border-box; padding: 64px; display: flex; flex-direction: column; gap: 40px; background: #ffffff; color: #111111; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 820px">
+      <div style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #5c5c5c">Step 1 of 4 · Understand</div>
+      <h1 style="margin: 0; font-size: 48px; line-height: 56px; font-weight: 800; letter-spacing: -0.01em">Contacts: one dataset, two ways to look at it</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 28px; color: #444444">A small team keeps business contacts in a Notion-style database. They need a table to scan fields and a board to see the pipeline — and they need to fix a contact's stage or notes from either view without losing their place.</p>
+    </div>
+    <div style="display: flex; gap: 8px; flex-shrink: 0">
+      <span style="padding: 4px 12px; border-radius: 999px; background: #e2eeff; color: #154384; font-size: 14px; line-height: 20px; font-weight: 600">Lead</span>
+      <span style="padding: 4px 12px; border-radius: 999px; background: #f0e9ff; color: #50327b; font-size: 14px; line-height: 20px; font-weight: 600">Prospect</span>
+      <span style="padding: 4px 12px; border-radius: 999px; background: #ffe9cf; color: #603c00; font-size: 14px; line-height: 20px; font-weight: 600">Qualified</span>
+      <span style="padding: 4px 12px; border-radius: 999px; background: #d9f6dd; color: #005423; font-size: 14px; line-height: 20px; font-weight: 600">Customer</span>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+
+    <section style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border: 1px solid #e2e2e2; border-radius: 8px; background: #ffffff">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span style="width: 32px; height: 32px; border-radius: 8px; background: #111111; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">A</span>
+        <h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">The job to be done</h2>
+      </div>
+      <p style="margin: 0; font-size: 16px; line-height: 24px; color: #444444">Three teammates (Arjun, Priya, Sara) own about ten contacts. Three moments matter:</p>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div style="padding: 16px; border-radius: 8px; background: #f7f7f7; font-size: 16px; line-height: 24px"><b>Scan.</b> “When I review my list, I want to see every field at a glance so I can spot gaps — missing emails, no owner.”</div>
+        <div style="padding: 16px; border-radius: 8px; background: #f7f7f7; font-size: 16px; line-height: 24px"><b>Move.</b> “When a deal moves forward, I want to change its stage from wherever I am so the pipeline stays true.”</div>
+        <div style="padding: 16px; border-radius: 8px; background: #f7f7f7; font-size: 16px; line-height: 24px"><b>Return.</b> “When I'm done editing, I want to land exactly where I was — same view, same scroll, same row.”</div>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border: 1px solid #e2e2e2; border-radius: 8px; background: #ffffff">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span style="width: 32px; height: 32px; border-radius: 8px; background: #111111; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">B</span>
+        <h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">What must work</h2>
+      </div>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 24px">
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>One shared dataset of 8–12 fictional contacts</span></li>
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>A Table / Board switch over that same data</span></li>
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>Board groups: Lead, Prospect, Qualified, Customer</span></li>
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>Edit Stage and Notes from either view, with a clear Save and Cancel</span></li>
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>A saved stage moves the card and updates the table row</span></li>
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>No duplicate or stale records after any number of switches</span></li>
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>An empty board group and missing optional fields</span></li>
+        <li style="display: flex; gap: 12px"><span style="color: #00873c; font-weight: 800">✓</span><span>Closing the panel keeps your view; keyboard focus makes sense; works on a narrow desktop</span></li>
+      </ul>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 16px; padding: 32px; border: 1px solid #ffcfb7; border-radius: 8px; background: #fff4ef">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span style="width: 32px; height: 32px; border-radius: 8px; background: #b24e00; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">!</span>
+        <h2 style="margin: 0; font-size: 24px; line-height: 32px; font-weight: 700">Where it can break</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 24px">
+        <div><b>Draft leaks.</b> Typing in Notes must not change the table or board until you press Save.</div>
+        <div><b>Cancel lies.</b> Cancel must restore the saved values exactly — even after five edits in a row.</div>
+        <div><b>Focus gets lost.</b> After a stage save, the card has moved to another column. Focus has to follow it, not vanish.</div>
+        <div><b>The empty column.</b> Qualified starts empty. It still needs a header, a count of 0 and a reason to exist.</div>
+        <div><b>Narrow screens.</b> At 1024px, eight columns plus a side panel don't fit side by side.</div>
+      </div>
+    </section>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #5c5c5c">Assumptions</div>
+      <div style="font-size: 14px; line-height: 20px; color: #444444">Name and Stage are required; every other field can be empty. Stage is one choice of four. Only Stage and Notes are editable in this exercise.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #5c5c5c">Out of scope, on purpose</div>
+      <div style="font-size: 14px; line-height: 20px; color: #444444">Backend, login, adding or deleting contacts, editing other fields. Search, filters and drag-and-drop are stretch goals, after the core flow is solid.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: #5c5c5c">How it will be judged</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <span style="padding: 2px 8px; border-radius: 4px; border: 1px solid #c9c9c9; font-size: 14px; line-height: 20px">Visual design</span>
+        <span style="padding: 2px 8px; border-radius: 4px; border: 1px solid #c9c9c9; font-size: 14px; line-height: 20px">Interaction</span>
+        <span style="padding: 2px 8px; border-radius: 4px; border: 1px solid #c9c9c9; font-size: 14px; line-height: 20px">Implementation</span>
+        <span style="padding: 2px 8px; border-radius: 4px; border: 1px solid #c9c9c9; font-size: 14px; line-height: 20px">Robustness</span>
+        <span style="padding: 2px 8px; border-radius: 4px; border: 1px solid #c9c9c9; font-size: 14px; line-height: 20px">Reasoning</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/* Aa NAD tokens as CSS custom properties (light theme), written from the system's tokens.json. */
+:root{
+--font-sans:"Atkinson Hyperlegible Next", Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
+--font-mono:"Atkinson Hyperlegible Mono", "Roboto Mono", ui-monospace, Menlo, Consolas, monospace;
+--space-0:0px;--space-2:2px;--space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--space-64:64px;--space-80:80px;--space-96:96px;--space-128:128px;
+--radius-none:0px;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--radius-full:9999px;
+--border-1:1px;--border-2:2px;
+--shadow-0:none;
+--shadow-1:0px 1px 2px rgba(0,0,0,0.08), 0px 1px 1px rgba(0,0,0,0.04);
+--shadow-2:0px 4px 8px rgba(0,0,0,0.08), 0px 2px 4px rgba(0,0,0,0.04);
+--shadow-3:0px 8px 24px rgba(0,0,0,0.12), 0px 2px 8px rgba(0,0,0,0.06);
+--shadow-4:0px 16px 48px rgba(0,0,0,0.16), 0px 4px 16px rgba(0,0,0,0.08);
+--size-icon-sm:16px;--size-icon-md:20px;--size-icon-lg:24px;--size-control-sm:32px;--size-control-md:40px;--size-control-lg:48px;--size-touch-ios:44px;--size-touch-android:48px;--size-container-sm:640px;--size-container-lg:1200px;
+--z-base:0;--z-dropdown:1000;--z-sticky:1100;--z-overlay:1300;--z-modal:1400;--z-popover:1500;--z-toast:1600;--z-tooltip:1700;
+--opacity-disabled:0.4;--opacity-hover:0.08;--opacity-pressed:0.16;
+--duration-instant:0ms;--duration-fast:120ms;--duration-base:200ms;--duration-slow:320ms;--duration-slower:480ms;
+--ease-standard:cubic-bezier(0.2,0,0,1);--ease-enter:cubic-bezier(0,0,0,1);--ease-exit:cubic-bezier(0.3,0,1,1);--ease-linear:linear;
+--gray-0:#ffffff;--gray-50:#f7f7f7;--gray-100:#efefef;--gray-200:#e2e2e2;--gray-300:#c9c9c9;--gray-400:#a3a3a3;--gray-500:#737373;--gray-600:#5c5c5c;--gray-700:#444444;--gray-800:#2b2b2b;--gray-900:#1c1c1c;--gray-950:#111111;--gray-1000:#000000;
+--red-100:#ffe6e4;--red-300:#ffaba3;--red-400:#fc7a73;--red-600:#bd3d3b;--red-700:#9c2f2e;--red-800:#782222;--red-900:#551918;
+--orange-100:#ffe7dc;--orange-300:#ffae84;--orange-400:#f68443;--orange-600:#b24e00;--orange-700:#923f00;--orange-800:#712f00;--orange-900:#511f00;
+--amber-50:#fff5e9;--amber-100:#ffe9cf;--amber-200:#ffd29b;--amber-300:#f8b65d;--amber-400:#e39500;--amber-600:#996300;--amber-700:#7d5000;--amber-800:#603c00;--amber-900:#452a00;
+--yellow-100:#f7edcb;--yellow-300:#e2c157;--yellow-400:#c9a300;--yellow-600:#876d00;--yellow-700:#6e5800;--yellow-800:#544300;--yellow-900:#3c2f00;
+--lime-100:#e4f3d3;--lime-300:#acd476;--lime-400:#8aba3e;--lime-600:#577f00;--lime-700:#466700;--lime-800:#354f00;--lime-900:#243700;
+--green-50:#eefbf0;--green-100:#d9f6dd;--green-200:#b0ecbc;--green-300:#83dc97;--green-400:#4ec36f;--green-600:#00873c;--green-700:#006e30;--green-800:#005423;--green-900:#003c17;
+--teal-100:#cdf7ef;--teal-300:#45dfca;--teal-400:#00c2ae;--teal-600:#008274;--teal-700:#006a5e;--teal-800:#005148;--teal-900:#003932;
+--cyan-100:#cbf6ff;--cyan-300:#3ddaf5;--cyan-400:#00bcd6;--cyan-600:#007e90;--cyan-700:#006775;--cyan-800:#004e5a;--cyan-900:#003740;
+--blue-50:#f2f7ff;--blue-100:#e2eeff;--blue-200:#c5ddff;--blue-300:#a0c6ff;--blue-400:#6ea8ff;--blue-600:#286dce;--blue-700:#1d58aa;--blue-800:#154384;--blue-900:#0f2f5d;
+--indigo-100:#e8ecff;--indigo-300:#b4c0ff;--indigo-400:#909eff;--indigo-600:#5962ce;--indigo-700:#474eaa;--indigo-800:#363b84;--indigo-900:#252a5d;
+--violet-50:#f8f5ff;--violet-100:#f0e9ff;--violet-200:#e1d2ff;--violet-300:#ceb5ff;--violet-400:#b88efc;--violet-600:#8053c0;--violet-700:#69429f;--violet-800:#50327b;--violet-900:#382356;
+--pink-100:#ffe4f0;--pink-300:#ffa3cf;--pink-400:#f079b6;--pink-600:#b23d7d;--pink-700:#922f66;--pink-800:#71234e;--pink-900:#501937;
+--bg:#ffffff;--bg-subtle:#f7f7f7;--surface:#ffffff;--surface-raised:#ffffff;--surface-sunken:#efefef;--surface-hover:#efefef;--surface-pressed:#e2e2e2;--surface-inverse:#111111;
+--border:#e2e2e2;--border-strong:#737373;
+--text:#111111;--text-muted:#5c5c5c;--text-subtle:#737373;--text-disabled:#a3a3a3;--text-inverse:#ffffff;
+--icon:#111111;--icon-muted:#5c5c5c;
+--action:#111111;--action-hover:#2b2b2b;--action-pressed:#000000;--on-action:#ffffff;
+--focus-ring:#111111;--link:#111111;--overlay:rgba(0,0,0,0.56);
+--danger:#bd3d3b;--danger-solid:#bd3d3b;--on-danger-solid:#ffffff;--danger-bg:#fff4f3;--danger-border:#ffaba3;
+--warning:#996300;--warning-solid:#e39500;--on-warning-solid:#111111;--warning-bg:#fff5e9;--warning-border:#f8b65d;
+--success:#006e30;--success-solid:#00873c;--on-success-solid:#ffffff;--success-bg:#eefbf0;--success-border:#83dc97;
+--info:#286dce;--info-solid:#286dce;--on-info-solid:#ffffff;--info-bg:#f2f7ff;--info-border:#a0c6ff;
+}

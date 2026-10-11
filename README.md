@@ -1,10 +1,10 @@
 # Contacts · Table & Board
 
-A small contacts workspace with two views of the same data: a **table** for scanning fields and a **board** for seeing people by stage. You can change a contact's **Stage** and **Notes** from either view, in one shared details panel with a clear Save and Cancel. Both views always show the same thing.
+Two working views of one contacts list: a **table** for scanning fields and a **board** for seeing people by stage. Stage and Notes can be edited from either view in one shared details panel, with explicit **Save** and **Cancel**, and both views always agree.
 
-Built with React 18, TypeScript, Vite and Tailwind CSS. The visual language comes from my design system, **Aa NAD**: its colour, type, spacing, radius and motion tokens and its Atkinson Hyperlegible fonts. All data is fictional and lives in local state.
-
-**Live preview:** https://contacts-table-board.vercel.app
+- **Live preview:** https://contacts-table-board.vercel.app
+- **Stack:** React 18, TypeScript, Vite, Tailwind CSS, dnd-kit. Mock data and local state only.
+- **Key idea:** `contacts` is the only copy of the data. The table and board are computed from it, and edits live in a separate draft until you save, so the views can't drift apart or go stale.
 
 ## Run it
 
@@ -16,6 +16,34 @@ npm run build      # type-check and production build
 ```
 
 Node 18 or newer.
+
+## The brief, point by point
+
+| Requirement | Where it is |
+|---|---|
+| One dataset of 8–12 fictional contacts | 10 contacts in `src/data/contacts.ts` |
+| Table / Board switch | Segmented control under the page title (arrow keys work) |
+| Board grouped into Lead, Prospect, Qualified, Customer | Always all four columns, in pipeline order |
+| Fields: Name, Email, Company, Role, Owner, Labels, Stage, Notes | Table shows all; cards show name, role · company, labels, owner, notes hint; the panel shows everything |
+| Edit Stage and Notes from either view | Shared details panel, opened from a row or a card |
+| Clear Save and Cancel | Sticky footer with a change count; ⌘/Ctrl + Enter saves; Undo after saving |
+| Saved stage moves the card and updates the table | One reducer action updates the single record; both views re-render from it |
+| Switching views keeps edits, no duplicates or stale records | Draft survives view switches; covered by tests that repeat edits and switches |
+| Empty board group | Qualified starts empty, with an explanation |
+| Missing optional information | Lena (no email, labels or notes), Kenji (no owner), Amara (no role) |
+| Closing the panel keeps the user's view | Same view and scroll position; focus returns to the record |
+| Sensible keyboard focus | Real buttons and radios, row and card arrow keys, focus trap in dialogs, visible focus ring |
+| Usable narrower desktop layout | At ~1024px the sidebar becomes a rail and the Notes column hides; the panel floats over the page |
+| React + TypeScript, README, live preview, notes | This repo, this file, the link above, and the sections below |
+
+## Scope and time
+
+The core flow took about 4–5 hours, in line with the suggested effort. On top of that:
+
+- **From the brief's optional list:** drag-and-drop between columns (pointer and keyboard), search, an owner filter, and light animation.
+- **Beyond the brief:** a mock workspace sidebar (so the page sits in a believable product, and can be collapsed), a dark theme, Undo after saving, and keyboard shortcuts.
+
+Unfinished items and what I'd do next are listed at the end.
 
 ## What to try
 
@@ -100,13 +128,13 @@ Nielsen's heuristics guided the details: unsaved and saved status always visible
 - **Tokens, not the Aa NAD component bundle.** Aa NAD's React components ship as a pre-built script that loads its own copy of React as a global. Mixing that into a Vite app means two copies of React or awkward workarounds. Instead I built small typed components on the same tokens and fonts. The look matches; the code stays one React tree.
 - **Fonts from Google Fonts.** Atkinson Hyperlegible Next and Mono load from Google Fonts instead of being bundled, which keeps the repo small. Offline, the app falls back to Roboto / system fonts.
 - **Only Stage and Notes are editable**, as the brief scopes it. The other fields are read-only in the panel.
-- **No persistence.** State is in memory and resets on reload, as the brief allows. The only thing in `localStorage` is the theme choice.
+- **No persistence.** State is in memory and resets on reload, as the brief allows. The only things in `localStorage` are the theme and whether the sidebar is open.
 - **Drag-and-drop changes stage only.** Card order within a column isn't stored.
 - **One toast at a time.** A new change replaces the previous toast, so Undo always refers to the latest change.
 - **The open record always stays visible**, even if it no longer matches the search, so editing never makes it vanish. It drops out when the panel closes.
 - **No loading or error states.** With no backend there's nothing to wait for or fail. With an API, Save would show a spinner and a retryable error message.
 
-## Not done / next
+## Unfinished and next
 
 - Unit tests for drag-and-drop with a real pointer (it's covered by the reducer tests and checked by hand).
 - Persist to `localStorage`, or to a real API with optimistic updates and rollback.
@@ -117,4 +145,7 @@ Nielsen's heuristics guided the details: unsaved and saved status always visible
 
 ## Design files
 
-The design work (problem breakdown, field map, flows, Nielsen's heuristics and all screens A–K) is on the Claude Design canvas *Contacts — Table & Board*.
+- `design/tokens.json`: every colour (light and dark), type style, spacing step, radius and shadow.
+- `design/COMPONENTS.md`: the component inventory, with variants and properties.
+- `design/canvas/`: the original design canvas (problem breakdown, field map, flows, Nielsen's heuristics and screens A–K).
+- `FIGMA-HANDOFF.md`: the plan for rebuilding these designs as an editable Figma file.
