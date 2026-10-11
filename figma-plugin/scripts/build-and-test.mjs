@@ -62,6 +62,9 @@ for (const plan of ['paid', 'free']) {
   check(s1.pages.length === 3, '3 pages');
   check(plan === 'free' ? s1.cols === 6 : s1.cols === 4, `collections: ${s1.cols}`);
   check(s1.sets >= 22, `component sets: ${s1.sets}`);
+  const overlaps = [];
+  for (const p of f.root._children) { const sec = p._children.filter((c) => c.type === 'SECTION').sort((a, b) => a._y - b._y); for (let i = 1; i < sec.length; i++) if (sec[i]._y < sec[i - 1]._y + sec[i - 1]._h) overlaps.push(p.name + ': ' + sec[i - 1].name + ' / ' + sec[i].name); }
+  check(overlaps.length === 0, 'no overlapping sections ' + overlaps.slice(0, 3).join('; '));
   const la = libraryAudit(f); console.log('  ', JSON.stringify(la));
   check(la.unstyledText === 0, 'every text layer in components uses a text style');
   check(la.unboundFill === 0, 'every solid fill in components is bound to a variable');

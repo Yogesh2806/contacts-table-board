@@ -4,7 +4,7 @@
 // Creates variables, text and shadow styles, icon components, 28 components with variants and properties, plus 42 icon components,
 // the eleven product screens and the five context boards, all bound to the variables. No images.
 import { DATA } from './data';
-import { C, FONT_STYLES, add, box, buildStyles, buildVariables, fitSection, issues, isTagged, log, newSection, nextY, paint, radius, recolor, rect, setupFonts, setByName, tag, tok, txt, warn, effectStyle, fillOf, Hosts, size } from './lib';
+import { C, FONT_STYLES, restack, add, box, buildStyles, buildVariables, fitSection, issues, isTagged, log, newSection, nextY, paint, radius, recolor, rect, setupFonts, setByName, tag, tok, txt, warn, effectStyle, fillOf, Hosts, size } from './lib';
 import * as A from './components';
 import * as B from './components2';
 import { SCREENS, buildScreen } from './screens';
@@ -134,11 +134,11 @@ async function buildFoundations(page: PageNode) {
     for (const [label, bag, base] of [['Light', C.S, 'bg'], ['Dark', C.SD, 'bg']] as [string, Record<string, Variable>, string][]) {
       const col = add(modes, box(label, { dir: 'VERTICAL', gap: 8, pad: 24, align: 'MIN', radius: 'md', stroke: 'border' }));
       col.fills = [paint(bag[base])]; // the column is painted with that mode's own background
-      const t = await txt(`Semantic colour · ${label}`, 'heading', 'text', 'title'); t.fills = [paint(bag['text'])]; add(col, t);
+      const t = await txt(`Semantic colour · ${label}`, 'heading', 'text', 'title'); if (bag !== C.S) t.fills = [paint(bag['text'])]; add(col, t); // Light already uses the Light 'text' token; re-binding the same variable leaves a stale magenta fill in Figma
       for (const tkn of DATA.semantic) {
         const row = add(col, box(tkn.name, { gap: 12 }));
         const r = add(row, rect(tkn.name, 40, 24, null, 'sm')); r.fills = [paint(bag[tkn.name])]; r.strokes = [paint(bag['border-strong'])]; r.strokeWeight = 1;
-        const lbl = add(row, await txt(tkn.name + '   ' + tkn[label.toLowerCase()], 'mono', 'text', 'name')); lbl.fills = [paint(bag['text'])];
+        const lbl = add(row, await txt(tkn.name + '   ' + tkn[label.toLowerCase()], 'mono', 'text', 'name')); if (bag !== C.S) lbl.fills = [paint(bag['text'])];
       }
     }
     add(root, await txt('Stage hues and neutrals', 'heading', 'text', 'palette title'));
@@ -185,7 +185,7 @@ async function buildFoundations(page: PageNode) {
       for (const s of DATA.shadow) {
         const b = add(bg, box(s.name, { justify: 'CENTER', radius: 'md', w: 120, h: 80 })); b.fills = [paint(bag['surface-raised'])];
         await effectStyle(b, `Shadow/${s.name}/${mode}`);
-        const l = add(b, await txt(s.name.replace('elevation-', 'Elevation '), 'caption-strong', 'text', 'name')); l.fills = [paint(bag['text'])];
+        const l = add(b, await txt(s.name.replace('elevation-', 'Elevation '), 'caption-strong', 'text', 'name')); if (bag !== C.S) l.fills = [paint(bag['text'])];
       }
     }
     await fitSection(sec, page, 'Foundations · Type, space, radius, elevation', '12 text styles, the spacing scale, radius tokens and 4 elevation levels (light and dark styles).', [root]);
@@ -214,8 +214,8 @@ async function buildCover(page: PageNode, comp: PageNode, vars: number) {
   }
   add(f, await txt('Pages: Cover & Foundations · Components (one section per component) · Screens (Step 1 context boards, Step 2 product screens A–K).\nDark mode: every colour variable has a Dark value; on the free plan Light and Dark are separate collections.', 'body-sm', 'text-muted', 'pages', { w: 880 }));
   await fitSection(sec, page, 'Contacts — Table & Board', 'Design system and screens for the contacts table and board.', [f]);
-  tag(sec); sec.y = 0;
-  for (const o of page.children) if (o !== sec && o.type === 'SECTION') o.y = Math.max(o.y, sec.y + sec.height + 160);
+  tag(sec); sec.y = -1;
+  restack(page); sec.y = 0;
 }
 
 async function main() {

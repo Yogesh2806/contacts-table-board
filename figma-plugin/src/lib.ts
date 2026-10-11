@@ -113,6 +113,7 @@ export async function buildVariables() {
     for (const [name, hexv] of DATA.prim[t.mode] as [string, string][]) {
       const { v, fresh } = ensure(t.coll, name, 'COLOR');
       if (fresh) { v.setValueForMode(t.modeId, col(hexv)); v.scopes = []; v.setVariableCodeSyntax('WEB', syntax(name)); }
+      RESOLVED.set(v.id, col(hexv));
       (t.mode === 'light' ? C.P : C.PD)[name] = v;
     }
   }
@@ -127,6 +128,8 @@ export async function buildVariables() {
         v.setValueForMode(t.modeId, target ? figma.variables.createVariableAlias(target) : col(tok[t.mode]));
         v.scopes = scopesFor(tok.name); v.setVariableCodeSyntax('WEB', syntax(tok.name));
       }
+      const aliased = tok.alias && tok.alias[t.mode];
+      RESOLVED.set(v.id, aliased && RESOLVED.get(((t.mode === 'light' ? C.P : C.PD)[aliased] || ({} as Variable)).id) || col(tok[t.mode]));
       (t.mode === 'light' ? C.S : C.SD)[tok.name] = v;
     }
   }
@@ -182,8 +185,12 @@ export async function buildStyles() {
 }
 
 // ---------- paints and bindings ----------
+/** The real colour of every colour variable, so a bound paint also carries the right fallback colour (Figma keeps it when re-binding the same variable). */
+export const RESOLVED = new Map<string, { r: number; g: number; b: number; a?: number }>();
 export function paint(v: Variable | undefined, fallback = '#ff00ff'): SolidPaint {
-  const base: SolidPaint = { type: 'SOLID', color: { r: col(fallback).r, g: col(fallback).g, b: col(fallback).b } };
+  const known = v && RESOLVED.get(v.id);
+  const c0 = known || col(fallback);
+  const base: SolidPaint = { type: 'SOLID', color: { r: c0.r, g: c0.g, b: c0.b }, ...(known && known.a !== undefined && known.a < 1 ? { opacity: known.a } : {}) };
   if (!v) { warn('missing colour variable'); return base; }
   return figma.variables.setBoundVariableForPaint(base, 'color', v); // returns a NEW paint
 }
@@ -208,13 +215,15 @@ export function effectStyle(n: any, name: string): Promise<void> | void {
 /** Focus ring = two stacked 0-blur shadows (2px page colour, then 4px ring colour), both bound to variables. */
 export function focusRing(n: any) {
   const ring = (spread: number, token: string): Effect => {
-    const e: DropShadowEffect = { type: 'DROP_SHADOW', color: { r: 0, g: 0, b: 0, a: 1 }, offset: { x: 0, y: 0 }, radius: 0, spread, visible: true, blendMode: 'NORMAL', showShadowBehindNode: true };
+    const k = RESOLVED.get(C.S[token] && C.S[token].id) || { r: 0, g: 0, b: 0 };
+    const e: DropShadowEffect = { type: 'DROP_SHADOW', color: { r: k.r, g: k.g, b: k.b, a: 1 }, offset: { x: 0, y: 0 }, radius: 0, spread, visible: true, blendMode: 'NORMAL', showShadowBehindNode: true };
     return figma.variables.setBoundVariableForEffect(e, 'color', C.S[token]);
   };
   n.effects = [ring(2, 'bg'), ring(4, 'focus-ring')];
 }
 export function ringOf(n: any, primitive: string, spread = 3) {
-  const e: DropShadowEffect = { type: 'DROP_SHADOW', color: { r: 0, g: 0, b: 0, a: 1 }, offset: { x: 0, y: 0 }, radius: 0, spread, visible: true, blendMode: 'NORMAL', showShadowBehindNode: true };
+  const k = RESOLVED.get(C.P[primitive] && C.P[primitive].id) || { r: 0, g: 0, b: 0 };
+  const e: DropShadowEffect = { type: 'DROP_SHADOW', color: { r: k.r, g: k.g, b: k.b, a: 1 }, offset: { x: 0, y: 0 }, radius: 0, spread, visible: true, blendMode: 'NORMAL', showShadowBehindNode: true };
   n.effects = [figma.variables.setBoundVariableForEffect(e, 'color', C.P[primitive])];
 }
 
@@ -398,4 +407,11 @@ export async function fitSection(sec: SectionNode, page: PageNode, title: string
 function nextYExcluding(page: PageNode, sec: SectionNode, gap = 160): number {
   let y = 0; for (const n of page.children) if (n !== sec) y = Math.max(y, n.y + n.height + gap);
   return y;
+}
+
+/** Pushes sections down so none overlap (only ever moves down; the order on the page is kept). */
+export function restack(page: PageNode, gap = 160) {
+  const secs = page.children.filter((c) => c.type === 'SECTION').sort((a, b) => a.y - b.y);
+  let bottom = -Infinity;
+  for (const s of secs) { if (s.y < bottom + gap) s.y = bottom + gap; bottom = s.y + s.height; }
 }
